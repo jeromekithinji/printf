@@ -1,23 +1,21 @@
 #include "main.h"
-#include <stdarg.h> 
-#include <unistd.h> 
+#include <stdarg.h>
+#include <unistd.h>
 
 /**
- * _printf - produces output according to a format.
- *
+ * _printf - produces output according to a format
  * @format: character string
  * Return: number of characters printed
  */
 
 int _printf(const char *format, ...)
 {
-	va_list args; 
+	va_list args;
 	int count = 0;
 	char *str;
 	char c;
 
-	va_start(args, format); 
-
+	va_start(args, format);
 	while (*format)
 	{
 		if (*format == '%')
@@ -26,11 +24,11 @@ int _printf(const char *format, ...)
 			switch (*format)
 			{
 			case 'c':
-				c = va_arg(args, int); 
+				c = va_arg(args, int);
 				write(1, &c, 1);
-				count++; 
+				count++;
 				break;
-			case 's': 
+			case 's':
 				str = va_arg(args, char *);
 				if (!str)
 					str = "(null)";
@@ -48,18 +46,17 @@ int _printf(const char *format, ...)
 			default:
 				write(1, "%", 1);
 				write(1, &(*format), 1);
-				count += 2; 
+				count += 2;
 				break;
 			}
 		}
-		else 
+		else
 		{
 			write(1, &(*format), 1);
 			count++;
 		}
-		format++; 
+		format++;
 	}
 	va_end(args);
-
-	return (count); 
+	return (count);
 }
