@@ -72,10 +72,10 @@ int print_nothing(va_list types, char buffer[],
 int ptr_print(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
 
-int flag_get(const char *format, int *i);
-int width_get(const char *format, int *i, va_list list);
+int flag_get(const char *format, int *a);
+int width_get(const char *format, int *a, va_list list);
 int precision_get(const char *format, int *a, va_list list_a);
-int size_get(const char *format, int *i);
+int size_get(const char *format, int *a);
 
 int reverse_print(va_list types, char buffer[],
 	int flags, int width, int precision, int size);
