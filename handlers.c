@@ -14,8 +14,8 @@
  */
 int write_character(char c, char buffer[],
 	int flags, int width, int precision, int size)
-	
-int a = 0;
+{	
+	int a = 0;
 	char padding_char = ' ';
 
 	UNUSED(precision);
