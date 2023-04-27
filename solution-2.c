@@ -50,7 +50,7 @@ int octalNot_print(va_list types, char buffer[],
 
 	int a = BUFF_SIZE - 2;
 	unsigned long int value = va_arg(types, unsigned long int);
-	unsigned long int original_num = num;
+	unsigned long int original_num = value;
 
 	UNUSED(width);
 
@@ -70,7 +70,7 @@ int octalNot_print(va_list types, char buffer[],
 	if (flags & F_HASH && original_num != 0)
 		buffer[a--] = '0';
 
-	i++;
+	a++;
 
 	return (unsigned_write(0, a, buffer, flags, width, precision, size));
 }
@@ -148,7 +148,7 @@ int hexadecimal_print(va_list types, char map_to[], char buffer[],
 		buffer[a--] = '0';
 	}
 
-	i++;
+	a++;
 
 	return (unsigned_write(0, a, buffer, flags, width, precision, size));
 }
