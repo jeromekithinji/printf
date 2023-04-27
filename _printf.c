@@ -22,7 +22,7 @@ int _printf(const char *format, ...)
 			buffer[buff_index++] = format[a];
 			if (buff_index == BUFF_SIZE)
 				print_buffer(buffer, &buff_index);
-			prints_char++;
+			print_character++;
 		}
 		else
 		{
@@ -32,7 +32,7 @@ int _printf(const char *format, ...)
 			precision = precision_get(format, &a, arg_list);
 			size = size_get(format, &a);
 			++a;
-			output = handle_print
+			output = print_handle
 				(format, &a, arg_list, buffer, flags, width, precision, size);
 			if (output == -1)
 				return (-1);
@@ -44,7 +44,7 @@ int _printf(const char *format, ...)
 
 	va_end(arg_list);
 
-	return (prints_char);
+	return (print_character);
 }
 
 /**
