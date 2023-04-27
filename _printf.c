@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 	char buffer[BUFF_SIZE];
 
 	if (format == NULL)
-		return (-1);
+		return (1);
 
 	va_start(arg_list, format);
 	for (a = 0; format && format[a] != '\0'; a++)
@@ -27,10 +27,10 @@ int _printf(const char *format, ...)
 		else
 		{
 			print_buffer(buffer, &buff_index);
-			flags = get_flags(format, &a);
-			width = get_width(format, &a, arg_list);
-			precision = get_precision(format, &a, arg_list);
-			size = get_size(format, &a);
+			flags = flag_get(format, &a);
+			width = width_get(format, &a, arg_list);
+			precision = precision_get(format, &a, arg_list);
+			size = size_get(format, &a);
 			++a;
 			output = handle_print
 				(format, &a, arg_list, buffer, flags, width, precision, size);
